@@ -13,7 +13,9 @@ public:
 	int getTo();
 	int getWeight();
 private:
-	friend class Graph;
+	friend class BaseGraph;
+	friend class DirectedGraph;
+	friend class UndirectedGraph;
 	int from;
 	int to;
 	int weight;
