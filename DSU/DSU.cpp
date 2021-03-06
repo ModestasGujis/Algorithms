@@ -13,26 +13,26 @@ DSU::DSU(int n) {
 	iota(p.begin(), p.end(), 0);
 }
 
-int DSU::getSize() {
+int DSU::get_size() {
 	return size;
 }
 
-int DSU::getSize(int i) {
-	return sz[findSet(i)];
+int DSU::get_size(int i) {
+	return sz[find_set(i)];
 }
 
-int DSU::findSet(int i) {
-	return (p[i] == i) ? i : (p[i] = findSet(p[i]));
+int DSU::find_set(int i) {
+	return (p[i] == i) ? i : (p[i] = find_set(p[i]));
 }
 
-bool DSU::isSameSet(int i, int j) {
-	return findSet(i) == findSet(j);
+bool DSU::is_same_set(int i, int j) {
+	return find_set(i) == find_set(j);
 }
 
-bool DSU::unionSet(int i, int j) {
-	if (isSameSet(i, j)) return false;
+bool DSU::union_set(int i, int j) {
+	if (is_same_set(i, j)) return false;
 
-	int x = findSet(i), y = findSet(j);
+	int x = find_set(i), y = find_set(j);
 
 	if (rank[x] < rank[y]) swap(x, y);
 
